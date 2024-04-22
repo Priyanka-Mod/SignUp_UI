@@ -1,0 +1,17 @@
+diff --git a/node_modules/is-bigint/index.js b/node_modules/is-bigint/index.js
+index 8da47d7..4b6163e 100644
+--- a/node_modules/is-bigint/index.js
++++ b/node_modules/is-bigint/index.js
+@@ -22,10 +22,12 @@ if (hasBigInts) {
+ 			|| typeof value === 'number'
+ 			|| typeof value === 'symbol'
+ 			|| typeof value === 'function'
++
+ 		) {
+ 			return false;
+ 		}
+ 		if (typeof value === 'bigint') {
++			console.log("typeof", typeof value);
+ 			return true;
+ 		}
+ 
