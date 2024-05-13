@@ -5,11 +5,16 @@ import {
   View,
   Text,
   TouchableOpacity,
+  FlatList,
+  Pressable,
+  TouchableWithoutFeedback,
+  TouchableNativeFeedback,
 } from 'react-native'
 import { Formik, Field } from 'formik'
 import * as yup from 'yup'
 import Input from './src/components/Input'
 import LottieView from 'lottie-react-native'
+import data from './data.json'
 
 const signUpValidationSchema = yup.object().shape({
   fullName: yup
@@ -95,17 +100,56 @@ const App = () => {
                   secureTextEntry
                 />
 
+
+                {/* demo prac diff between touchableOpacity */}
+
+                {/* <TouchableWithoutFeedback onPress={() => console.log("submitted")}>
+                  <View>
+                    <Text style={{ color: 'purple', fontSize: 16, fontWeight: '700' }}>SIGN UP</Text>
+                  </View>
+                  {/* <Text style={{ color: 'purple', fontSize: 16, fontWeight: '700' }}>SIGN UP</Text> */}
+
+                {/* </TouchableWithoutFeedback>
+
+                <TouchableWithoutFeedback onPress={() => console.log("jahsvdnbds")
+                }>
+                  <View
+                    style={{ marginTop: 20, backgroundColor: "lavender", padding: 12, borderRadius: 10 }}
+                  >
+                    <Text>Touch Here</Text>
+                  </View>
+                </TouchableWithoutFeedback> */}
+
                 <TouchableOpacity onPress={() => handleSubmit()} disabled={!isValid} style={{ marginTop: 20, backgroundColor: "lavender", padding: 12, borderRadius: 10 }}>
                   <Text style={{ color: 'purple', fontSize: 16, fontWeight: '700' }}>SIGN UP</Text>
                 </TouchableOpacity>
 
               </>
             )}
+
           </Formik>
 
         </View>
       </SafeAreaView>
     </>
+    // <SafeAreaView style={{ paddingHorizontal: 20 }}>
+    //   <FlatList
+    //     data={data}
+    //     initialNumToRender={5}
+    //     windowSize={11}
+    //     onEndReached={(res) => console.log(res)}
+    //     maxToRenderPerBatch={5}
+    //     updateCellsBatchingPeriod={6000}
+    //     // getItemCount={(data) => data}
+    //     renderItem={({ item }) => {
+    //       return (
+    //         <View>
+    //           <Text style={{ paddingVertical: 20 }}>{item.id}   {item.quote}</Text>
+    //         </View>
+    //       )
+    //     }}
+    //   />
+    // </SafeAreaView>
   )
 }
 
